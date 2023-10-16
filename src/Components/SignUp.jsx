@@ -2,21 +2,26 @@ import React, { useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import AdjustableNavBar from "./AdjustableNavBar";
-import "../Styles/SignUp.css";
+import "../Styles/Sign.css";
 import { UserContext } from "../App";
+import { useNavigate } from "react-router-dom";
+
+
 export default function SignUp() {
   const usernameRef = useRef(null);
   const passwordRef = useRef(null);
   const emailRef = useRef(null);
   const [helper, setHelper] = useState(["", "", ""]);
   const { user, setUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
+
   const handleSubmit = () => {
     const username = usernameRef.current.value;
     const password = passwordRef.current.value;
-    const email = emailRef.current.value;
+    const email = emailRef.current.value.toLowerCase();
     let valid = true;
 
 
@@ -61,26 +66,21 @@ export default function SignUp() {
       setHelper([helper[0], helper[1], ""]);
     }
     if (valid) {
-      console.log("Username:", username);
-      console.log("Password:", password);
-      console.log("Email:", email);
       const ValidData = {username, password, email}
       
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
     const isExists = users.some(
-      (element) => element.username === ValidData.username
+      (element) => element.username === ValidData.username ||element.email===ValidData.email
     );
 
     if (isExists) {
-      toast("User already exists", {theme: "colored", type:"error"});
+      toast("Username or email already exists", {theme: "colored", type:"error"});
     } else {
         setUser(ValidData);
       users.push(ValidData);
       localStorage.setItem("users", JSON.stringify(users));
-    //   navigate("/editprofile")
-    toast("Confirmed account", {theme: "colored", type:"error"});
-
+      navigate("/mainpage")
     }
     }
   };
@@ -99,7 +99,7 @@ export default function SignUp() {
       <ToastContainer />
       <div className="outofpage-container">
         <div className="page-container">
-          <h2>Sign Up</h2>
+          <h2 className="header-text">Sign Up</h2>
         
           <div
             className="textfields-holder"

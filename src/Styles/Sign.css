@@ -12,6 +12,7 @@
   min-height: 80vh;
   width: 60%;
   background-color: #ffffff;
+  border: #79AC78 solid 3px;
 }
  .submit-button span{
     color: white;
@@ -21,4 +22,8 @@
   .submit-button span:hover {
     color: #B0D9B1;
   }
-   
+.header-text
+{
+    color: #618264;
+    text-decoration: #79AC78 solid underline;
+}

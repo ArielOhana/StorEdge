@@ -5,6 +5,8 @@ import "./Styles/App.css";
 import HomePage from "./Components/HomePage";
 import NoPage from "./Components/NoPage";
 import SignUp from "./Components/SignUp";
+import MainPage from "./Components/MainPage";
+import SignIn from "./Components/SignIn";
 export const UserContext = createContext();
 function App() {
 
@@ -14,7 +16,9 @@ function App() {
       <UserContext.Provider value={{ user, setUser }}>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/mainpage" element={<MainPage />} />
           <Route path="*" element={<NoPage />} />
         </Routes>
       </UserContext.Provider>
