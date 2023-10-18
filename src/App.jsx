@@ -10,7 +10,7 @@ import SignIn from "./Components/SignIn";
 export const UserContext = createContext();
 function App() {
 
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState();
   return (
     <div>
       <UserContext.Provider value={{ user, setUser }}>

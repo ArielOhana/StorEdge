@@ -66,8 +66,7 @@ export default function SignUp() {
       setHelper([helper[0], helper[1], ""]);
     }
     if (valid) {
-      const ValidData = {username, password, email}
-      
+      const ValidData = {username, password, email,list:[{name:'listname', items:[{name:'car',amount:1,location:'il',weight:315},{name:'oil',amount:10,location:'il',weight:104},{name:'googles',amount:1,location:'il',weight:0.3},{name:'ropes',amount:153,location:'il',weight:453}]}]};
     let users = JSON.parse(localStorage.getItem("users")) || [];
 
     const isExists = users.some(
@@ -77,6 +76,7 @@ export default function SignUp() {
     if (isExists) {
       toast("Username or email already exists", {theme: "colored", type:"error"});
     } else {
+      console.log(ValidData)
         setUser(ValidData);
       users.push(ValidData);
       localStorage.setItem("users", JSON.stringify(users));
