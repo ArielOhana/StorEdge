@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import '../Styles/MainPage.css'
 import AddList from './AddList';
 import { UserContext } from '../App';
@@ -8,6 +8,9 @@ import { Box, Modal } from '@mui/material';
 
 export default function MainPage()  {
     const { user, setUser } = useContext(UserContext);
+    const [ClickedOn, setClickedOn] = useState(user.list.length);
+        console.log(ClickedOn);
+
     const style = {
         position: 'absolute',
         top: '50%',
@@ -15,10 +18,9 @@ export default function MainPage()  {
         transform: 'translate(-50%, -50%)',
       };
       console.log(user)
-      let ClickedOn = -1;
       const [open, setOpen] = React.useState(false);
       const autoClose = () => setOpen(false);;
-      const handleOpen = () => setOpen(true);
+      const handleOpen = () => {setOpen(true); setClickedOn((prev) => {return prev + 1});};
       const handleClose = () => {setOpen(false); 
     
     }
@@ -36,7 +38,7 @@ export default function MainPage()  {
   onClose={autoClose}
 >
   <Box sx={style}>
-     <AddList handleClose={handleClose} ClickedOn={0}/>
+     <AddList handleClose={handleClose} ClickedOn={ClickedOn}/>
 
   </Box>
 </Modal>
