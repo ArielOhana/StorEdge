@@ -1,4 +1,6 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
     background-color: #d0e7d2;
+    overflow-x: hidden;
+    
 }

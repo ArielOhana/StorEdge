@@ -24,6 +24,7 @@ body {
    display: flex;
    width: 20%;
    flex-direction: row-reverse;
+   margin-right: 15px;
    
  }
  .children-div a {
