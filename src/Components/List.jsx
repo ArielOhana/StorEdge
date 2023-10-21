@@ -120,11 +120,13 @@ export default function List({ClickedOn, RemoveList }) {
         <Table aria-label="basic table"  size={'sm'} stripe={`2n-1`}>
           <thead>
             <tr>
-              <th style={{ width: '40%' }}>Items</th>
+              {list.catagories ? (<>
+              {list.catagories.map((data,index)=> {return (<th style={index == 0 ? {width:'30%'}:{width:'15%'}} >{list.catagories[index]}</th>)  
+            } )}<th style={{width:'12%'}}>Add/Remove</th></>): (<><th style={{ width: '40%' }}>Items</th>
               <th>Amount</th>
               <th>Location</th>
               <th>Weight&nbsp;(kg/total)</th>
-              <th>Add/Remove</th>
+              <th>Add/Remove</th></>)}
             </tr>
           </thead>
           <tbody>

@@ -1,6 +1,9 @@
 /* dark purple: #720e9e; */
 /* light purple: #d0d0ff; */
-
+/*Dark: #618264
+Medium: #79AC78
+Light: #B0D9B1
+Background: #D0E7D2 */
 .error-container {
     display: flex;
     flex-direction: column;
@@ -8,7 +11,7 @@
     align-items: center;
     text-align: center;
     color: #fff;
-    background: linear-gradient(to bottom, #d0d0ff, #720e9e);
+    background: linear-gradient(to bottom, #B0D9B1, #618264);
     height: 100vh;
   }
   

@@ -7,7 +7,8 @@ import AdjustableNavBar from "./AdjustableNavBar";
 import "../Styles/Sign.css";
 import { UserContext } from "../App";
 import { useNavigate } from "react-router-dom";
-
+import HomeIcon from '@mui/icons-material/Home';
+import { IconButton } from '@mui/material';
 
 
 export default function SignIn() {
@@ -43,11 +44,10 @@ export default function SignIn() {
   return (
     <>
       <AdjustableNavBar>
-        <Link to="/signup" style={{ padding: "0 13px" }}>
-          <h4>Sign Up</h4>
-        </Link>
         <Link to="/" style={{ padding: "0 13px" }}>
-          <h4>Home Page</h4>
+        <IconButton aria-label="Log in" sx={{ fontSize:40, mt: 'auto' }}>
+                          <HomeIcon fontSize='large' />
+                        </IconButton>
         </Link>
       </AdjustableNavBar>
       

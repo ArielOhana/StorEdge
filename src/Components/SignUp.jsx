@@ -7,6 +7,9 @@ import AdjustableNavBar from "./AdjustableNavBar";
 import "../Styles/Sign.css";
 import { UserContext } from "../App";
 import { useNavigate } from "react-router-dom";
+import { IconButton } from "@mui/material";
+import HomeIcon from '@mui/icons-material/Home';
+import LoginIcon from '@mui/icons-material/Login';
 
 
 export default function SignUp() {
@@ -88,11 +91,13 @@ export default function SignUp() {
   return (
     <>
       <AdjustableNavBar>
-        <Link to="/signin" style={{ padding: "0 13px" }}>
-          <h4>Sign In</h4>
-        </Link>
+      <Link to="/signin" style={{padding: '0 13px'}}><IconButton aria-label="Log in" sx={{ fontSize:40, mt: 'auto' }}>
+                          <LoginIcon fontSize='large' />
+                        </IconButton></Link>
         <Link to="/" style={{ padding: "0 13px" }}>
-          <h4>Home Page</h4>
+        <IconButton aria-label="Log in" sx={{ fontSize:40, mt: 'auto' }}>
+                          <HomeIcon fontSize='large' />
+                        </IconButton>
         </Link>
       </AdjustableNavBar>
       

@@ -22,8 +22,8 @@ const NoPage = () => {
             <span className="circle" aria-hidden="true">
               <span className="icon arrow"></span>
             </span>
-            <NavLink to="/login">
-              <span className="button-text">Login</span>
+            <NavLink to="/signin">
+              <span className="button-text">Sign In</span>
             </NavLink>
           </button>
         </div>
