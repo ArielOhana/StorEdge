@@ -79,7 +79,6 @@ export default function SignUp() {
     if (isExists) {
       toast("Username or email already exists", {theme: "colored", type:"error"});
     } else {
-      console.log(ValidData)
         setUser(ValidData);
       users.push(ValidData);
       localStorage.setItem("users", JSON.stringify(users));

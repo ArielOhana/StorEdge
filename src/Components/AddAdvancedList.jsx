@@ -38,11 +38,6 @@ export default function AddAdvancedList({ handleClose }) {
         ],
         items: [],
       };
-      console.log([
-        RequireOneRef.current.value,
-        RequireTwoRef.current.value,
-        RequireThreeRef.current.value,
-      ]);
       updatedUsers[userIndex].list.push(advancedlist);
 
       const updatedUser = {
@@ -62,7 +57,7 @@ export default function AddAdvancedList({ handleClose }) {
     );
 
     if (userIndex !== -1) {
-      updatedUsers[userIndex].list.push({ name: "new list", items: [] });
+      updatedUsers[userIndex].list.push({ name: "new list", items: [], require:['number','string','number'] });
 
       const updatedUser = {
         ...user,
@@ -84,48 +79,53 @@ export default function AddAdvancedList({ handleClose }) {
         />
         <div>
           <TextField
-            style={{ width: "17%" }}
+            style={{minWidth:"66%", width: "240px" }}
             inputRef={ListFirstRef}
             placeholder={"Header row"}
             variant="standard"
           />
-
+            </div>
+            <div className="catagories-div">
           <TextField
-            style={{ width: "25%" }}
+            style={{minWidth:"50%", width: "140px" }}
             inputRef={ListSecondRef}
             placeholder={"Catagory 1"}
             variant="standard"
           />
           <Select label="type" inputRef={RequireOneRef}>
             <MenuItem value=""></MenuItem>
-            <MenuItem value={"all"}>All</MenuItem>
-            <MenuItem value={"numbers"}>Numbers</MenuItem>
+            
+            <MenuItem value={"number"}>Numbers</MenuItem>
             <MenuItem value={"string"}>String</MenuItem>
           </Select>
+          </div>
+          <div className="catagories-div">
           <TextField
-            style={{ width: "25%" }}
+            style={{minWidth:"50%", width: "140px" }}
             inputRef={ListThirdRef}
             placeholder={"Catagory 2"}
             variant="standard"
           />
           <Select label="type" inputRef={RequireTwoRef}>
             <MenuItem value=""></MenuItem>
-            <MenuItem value={"all"}>All</MenuItem>
-            <MenuItem value={"numbers"}>Numbers</MenuItem>
+            
+            <MenuItem value={"number"}>Numbers</MenuItem>
             <MenuItem value={"string"}>String</MenuItem>
           </Select>
+          </div>
+          <div className="catagories-div">
           <TextField
-            style={{ width: "25%" }}
+            style={{minWidth:"50%", width: "140px" }}
             inputRef={ListFourthRef}
             placeholder={"Catagory 3"}
             variant="standard"
           />
           <Select label="type" inputRef={RequireThreeRef}>
             <MenuItem value=""></MenuItem>
-            <MenuItem value={"all"}>All</MenuItem>
-            <MenuItem value={"numbers"}>Numbers</MenuItem>
+            <MenuItem value={"number"}>Numbers</MenuItem>
             <MenuItem value={"string"}>String</MenuItem>
           </Select>
+          
         </div>
         <div>
           <Button

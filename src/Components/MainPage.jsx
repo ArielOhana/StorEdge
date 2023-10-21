@@ -23,7 +23,6 @@ export default function MainPage()  {
       };
       const navigate = useNavigate()
       useEffect(() => {
-        console.log(!user?.username)
         if (!user?.username) {
           navigate("/error");
         }

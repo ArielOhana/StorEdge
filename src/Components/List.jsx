@@ -16,6 +16,11 @@ export default function List({ClickedOn, RemoveList }) {
     const ListNameRef = useRef(null);
     const TrashListPressed = () => RemoveList(ClickedOn);
     let list = user.list[ClickedOn] || {name: '', items:[]};
+    function isValueMatchingType(type, value) {
+      type = type.toLowerCase();
+      return (type === 'string' && (typeof value === 'string' || !isNaN(value))) ||
+             (type === 'number' && (typeof value === 'number' || !isNaN(value)));
+    }
     const ChangeName = () => {
         const userDataArray = JSON.parse(localStorage.getItem("users"));
         const userIndex = userDataArray.findIndex(
@@ -63,7 +68,6 @@ export default function List({ClickedOn, RemoveList }) {
         if (!newItemName || !newItemAmount || !newItemLocation || !newItemWeight) {
           return;
         }
-      
         const newItem = {
           name: newItemName,
           amount: newItemAmount,
@@ -73,7 +77,10 @@ export default function List({ClickedOn, RemoveList }) {
       
         const userDataArray = JSON.parse(localStorage.getItem("users"));
         const userIndex = userDataArray.findIndex((userData) => userData.username === user.username);
-      
+        if(!isValueMatchingType(userDataArray[userIndex].list[ClickedOn].require[0],newItemAmount)|| !isValueMatchingType( userDataArray[userIndex].list[ClickedOn].require[1],newItemLocation)||!isValueMatchingType(userDataArray[userIndex].list[ClickedOn].require[2],newItemWeight))
+          {
+                        return;
+          }
         if (
           userDataArray[userIndex] &&
           userDataArray[userIndex].list &&
