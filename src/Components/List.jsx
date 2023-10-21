@@ -7,6 +7,7 @@ import Table from '@mui/joy/Table';
 import AddIcon from '@mui/icons-material/Add';
 import ChangeNameIcon from '@mui/icons-material/PublishedWithChanges';
 import '../Styles/List.css'
+import Chart from 'react-google-charts';
 export default function List({ClickedOn, RemoveList }) {
     const { user, setUser } = useContext(UserContext);
     const NewItemNameRef = useRef(null);
@@ -170,7 +171,27 @@ export default function List({ClickedOn, RemoveList }) {
             </tr>
           </tbody>
         </Table>
+       {list?.require[0] ==  'number'  && list?.require[1] ==  'number' &&list?.require[2] == 'number' ? (<Chart
+      chartType="Bar"
+      width="100%"
+      height="400px"
+      data={[
+        [list?.catagories[0], list?.catagories[1], list?.catagories[2], list?.catagories[3]],
+        ...list.items.map((item, index) => [
+          item?.name,
+          Number(item?.amount),
+          Number(item?.location),
+          Number(item?.weight)
+        ])
+      ]}
+      options={{
+        chart: {
+          title: list?.name,
+        },
+      }}
+    />) :<></>} 
       </div>
     </div>
+    
     </div></>)
 }
