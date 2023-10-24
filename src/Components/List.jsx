@@ -173,7 +173,8 @@ export default function List({ClickedOn, RemoveList }) {
         </Table>
        {list?.require[0] ==  'number'  && list?.require[1] ==  'number' &&list?.require[2] == 'number' ? (<Chart
       chartType="Bar"
-      width="100%"
+       width="99%"
+      max-width="99%"
       height="400px"
       data={[
         [list?.catagories[0], list?.catagories[1], list?.catagories[2], list?.catagories[3]],
@@ -189,6 +190,7 @@ export default function List({ClickedOn, RemoveList }) {
           title: list?.name,
         },
       }}
+      
     />) :<></>} 
       </div>
     </div>
