@@ -44,11 +44,9 @@ export default function SignIn() {
   return (
     <>
       <AdjustableNavBar>
-        <Link to="/" style={{ padding: "0 13px" }}>
-        <IconButton aria-label="Log in" sx={{ fontSize:40, mt: 'auto' }}>
-                          <HomeIcon fontSize='large' />
-                        </IconButton>
-        </Link>
+      <Link to="/" style={{padding: '0 13px'}}><IconButton aria-label="home page" sx={{ fontSize:40, padding: '0' }}>
+            <div style={{display:"flex", flexDirection:'column'}}>  <HomeIcon fontSize='large' /> <span style={{fontSize:12,margin:0}}>Home</span>          </div>
+                        </IconButton></Link>
       </AdjustableNavBar>
       
       <ToastContainer />

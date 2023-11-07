@@ -8,6 +8,7 @@ import AddIcon from '@mui/icons-material/Add';
 import ChangeNameIcon from '@mui/icons-material/PublishedWithChanges';
 import '../Styles/List.css'
 import Chart from 'react-google-charts';
+import { Delete } from '@mui/icons-material';
 export default function List({ClickedOn, RemoveList }) {
     const { user, setUser } = useContext(UserContext);
     const NewItemNameRef = useRef(null);
@@ -148,9 +149,9 @@ export default function List({ClickedOn, RemoveList }) {
                     <td>{item.weight}</td>
                     <td>
                       <div onClick={() => removeitem(index)}>
-                        <IconButton aria-label="delete" sx={{ mt: 'auto' }}>
-                          <DeleteIcon />
-                        </IconButton>
+                      <IconButton aria-label="Add" sx={{ mt: 'auto', padding:0 }}>              
+            <div style={{display:"flex", flexDirection:'column'}}>  <DeleteIcon fontSize='medium' /> <span style={{fontSize:12,margin:0}}>Delete</span></div>
+                </IconButton>
                       </div>
                     </td>
                   </tr>
@@ -164,8 +165,8 @@ export default function List({ClickedOn, RemoveList }) {
               <td><TextField inputRef={NewItemLocationRef} variant="standard" /></td>
               <td><TextField inputRef={NewItemWeightRef} variant="standard" /></td>
               <div onClick={additem}>
-                <IconButton aria-label="Add" sx={{ mt: 'auto' }}>
-                  <AddIcon />
+                <IconButton aria-label="Add" sx={{ mt: 'auto', padding:0 }}>              
+            <div style={{display:"flex", flexDirection:'column'}}>  <AddIcon fontSize='medium' /> <span style={{fontSize:12,margin:0}}>Add</span></div>
                 </IconButton>
               </div>
             </tr>

@@ -49,13 +49,11 @@ export default function MainPage()  {
       return (
         <>
           <AdjustableNavBar>
-            <Link to="/" style={{ padding: "13px 13px" }}>
-            <IconButton aria-label="Log out" sx={{ fontSize:40, mt: 'auto' }}>
-                          <LogoutRoundedIcon fontSize='large' />
-                        </IconButton>
-            </Link>
-            <Link onClick={handleOpen} style={{ padding: "13px 13px" }}> <IconButton aria-label="Add Advanced" sx={{ fontSize:40, mt: 'auto' }}>
-                          <AddBoxIcon fontSize='large' />
+          <Link to="/" style={{padding: '13px 13px'}}><IconButton aria-label="home page" sx={{ fontSize:40, padding: '0' }}>
+            <div style={{display:"flex", flexDirection:'column'}}>  <LogoutRoundedIcon fontSize='large' /> <span style={{fontSize:12,margin:0}}>Log out</span>          </div>
+                        </IconButton></Link>
+                        <Link onClick={handleOpen} style={{padding: '13px 13px'}}><IconButton aria-label="home page" sx={{ fontSize:40, padding: '0' }}>
+            <div style={{display:"flex", flexDirection:'column'}}>  <AddBoxIcon fontSize='large' /> <span style={{fontSize:12,margin:0}}>Add</span>          </div>
                         </IconButton></Link>
           </AdjustableNavBar>
           <div>

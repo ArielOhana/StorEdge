@@ -14,10 +14,14 @@ const HomePage = () => {
     return (
       <div>
         <AdjustableNavBar>
-            <Link to="/signin" style={{padding: '0 13px'}}><IconButton aria-label="Log in" sx={{ fontSize:40, mt: 'auto' }}>
-                          <LoginIcon fontSize='large' />
+         
+            <Link to="/signin" style={{padding: '0 13px'}}><IconButton aria-label="Log in" sx={{ fontSize:40, padding: '0' }}>
+            <div style={{display:"flex", flexDirection:'column'}}>  <LoginIcon fontSize='large' /> <span style={{fontSize:12,margin:0}}>Sign in</span>          </div>
                         </IconButton></Link>
+              
+                        
         </AdjustableNavBar>
+        
         <div className='homepage-main-div'>
         <div className='side-div'>
           <div className='header'>
